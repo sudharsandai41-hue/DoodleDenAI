@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-blue: #6EA8FF;
+    --color-brand-dark: #222222;
+    --color-brand-sky: #BFE4FF;
+    --color-paper: #F7F4EB;
+    --color-pastel-blue: #A7CCFF;
+    --color-pastel-mint: #B8EED5;
+    --color-pastel-yellow: #FFE493;
+    --color-pastel-orange: #FEBA8F;
+    --color-pastel-pink: #FF8E8E;
+
+    --font-hand: 'Patrick Hand', cursive;
+    --font-sans: 'Comic Neue', cursive;
+
+    /* Notebook Grid Pattern */
+    --background-notebook: linear-gradient(#E8F0FE 2px, transparent 2px), linear-gradient(90deg, #E8F0FE 2px, transparent 2px);
+
+    --animate-wobble: wobble 0.3s ease-in-out infinite;
+    --animate-float: float-slow 4s ease-in-out infinite;
+
+    @keyframes wobble {
+
+        0%,
+        100% {
+            transform: rotate(-2deg);
+        }
+
+        50% {
+            transform: rotate(2deg);
+        }
+    }
+
+    @keyframes float-slow {
+
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+}
+
+@layer base {
+    body {
+        @apply bg-paper text-brand-dark font-sans overflow-hidden;
+        background-color: var(--color-paper);
+        background-image: var(--background-notebook);
+        background-size: 40px 40px;
+    }
+
+    /* Global "Soft Sky" Frame effect for the whole app container if needed */
+    #root {
+        @apply w-full h-full;
+    }
+
+    /* React Flow Overrides for Doodle Look */
+    .react-flow__controls {
+        @apply !shadow-none !border-[3px] !border-black !rounded-xl overflow-hidden bg-white;
+    }
+
+    .react-flow__controls-button {
+        @apply !bg-white !border-b-[3px] !border-black transition-colors;
+
+        &:hover {
+            @apply !bg-pastel-yellow;
+        }
+
+        &:last-child {
+            border-bottom-width: 0 !important;
+        }
+
+        svg {
+            @apply fill-black;
+        }
+    }
+
+    .react-flow__minimap {
+        @apply !rounded-2xl !border-[3px] !border-black !bg-white;
+        box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Custom Scrollbar for "Doodle" feel */
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #F7F4EB;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #A7CCFF;
+        border-radius: 10px;
+        border: 3px solid #F7F4EB;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #6EA8FF;
+    }
+}
