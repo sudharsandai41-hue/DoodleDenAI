@@ -2,7 +2,7 @@
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import { USER_PROMPT_TEMPLATE, AI_INSTRUCTIONS, EDIT_USER_PROMPT_TEMPLATE, EDIT_AI_INSTRUCTIONS } from './constants';
 
-const GEMINI_API_KEY = "AIzaSyCrSCS3Cqdj3fccLUocEaVGgw2_xfAtwX8";
+const GEMINI_API_KEY = "AIzaSyBuI23w3xqSmNGgz4xbeThY8bfSrSu12eA";
 
 // Initialize Gemini
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
